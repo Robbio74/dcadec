@@ -42,10 +42,10 @@ $(OUT_LIB): $(OBJ_LIB)
 	$(AR) crsu $@ $(OBJ_LIB)
 
 $(OUT_DEC): $(OBJ_DEC) $(OUT_LIB)
-	$(CC) $(LDFLAGS) -o $@ $(OBJ_DEC) $(OUT_LIB) $(LIBS)
+	$(CC) $(LDFLAGS) -Llibdcadec -o $@ $(OBJ_DEC) $(LIBS) -ldcadec
 
 $(OUT_CUT): $(OBJ_CUT) $(OUT_LIB)
-	$(CC) $(LDFLAGS) -o $@ $(OBJ_CUT) $(OUT_LIB) $(LIBS)
+	$(CC) $(LDFLAGS) -Llibdcadec -o $@ $(OBJ_CUT) $(LIBS) -ldcadec
 
 clean:
 	rm -f $(OUT_LIB) $(OBJ_LIB) $(DEP_LIB)
